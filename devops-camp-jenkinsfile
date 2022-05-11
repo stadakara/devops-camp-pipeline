@@ -24,6 +24,7 @@ pipeline {
                 }
             }
         }
+    }
         stage('Application docker build') {
             steps {
                 echo "Building application image"
@@ -38,6 +39,7 @@ pipeline {
                     }
                 }
             }
+        }
             //TODO("Lab 4 - Artifact Management"): clean local docker app image
             withCredentials([usernameColonPassword(credentialsId: 'stadakara-harbor-auth', variable: 'HARBOR-AUTH')]) {
                     script {
@@ -94,4 +96,4 @@ pipeline {
             sh 'rm -rf .git ./*'
         }
     }
-        }
+ }
